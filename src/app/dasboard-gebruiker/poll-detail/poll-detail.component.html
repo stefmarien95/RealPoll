@@ -1,0 +1,21 @@
+<form (ngSubmit)=" onAnswerSubmit()"  #answerForm="ngForm" class="text-center" style="color: #757575;">
+    <p>{{ modelAnswer | json }}</p>
+    
+      <h5>
+        <strong >{{poll?.naam}}</strong>
+      </h5>
+      <h5>
+        <strong >{{poll?.vraag}}</strong>
+      </h5>
+      
+         <li *ngFor="let a of AnswerPoll">{{a.antwoord}}
+            <button type="button" (click)="stem(a)" mdbBtn color="success" mdbWavesEffect>stem</button>
+            {{a.count}}
+         </li>
+
+    <div class="md-form">
+      <input type="text" id="materialanswer" class="form-control" [(ngModel)]="modelAnswer.antwoord" name="answer"  mdbInput>
+      <label for="materialContactFormVraag">Voeg een antwoord toe</label>
+    </div>
+    <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!answerForm.form.valid || submitted" >Voeg een antwoord toe</button>
+  </form>

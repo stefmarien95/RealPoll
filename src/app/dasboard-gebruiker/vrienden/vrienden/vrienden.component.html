@@ -1,0 +1,17 @@
+
+<!-- Default form register -->
+<form (ngSubmit)="onSubmit()" #vriendenForm="ngForm" class="text-center border border-light p-5">
+    <p>{{ model | json }}</p>
+      <p class="h4 mb-4">vrienden</p>
+  
+      <div class="form-row mb-4">
+        <div class="col">
+          <!-- First name -->
+          <input type="text"  id="zoeken" class="form-control" placeholder="zoek"  [(ngModel)]="email" name="zoeken" >
+        </div>
+      </div>
+      <!-- Sign up button -->
+      <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="!vriendenForm.form.valid || submitted" >Nodig uit</button>
+     
+  </form>
+    <!-- Default form register -->

@@ -1,0 +1,62 @@
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+    <div class="container">  
+      <h1 class="h4 mb-4">Contact Us!</h1>  
+    </div>
+    </div>
+    </section>
+    <section class="section">
+    <div class="container">
+      <!-- form goes here -->
+      <form class="text-center border border-light p-5" (ngSubmit)="processForm()">
+        <!-- name -->
+        <div class="field">
+          <input 
+            type="text" 
+            name="name" 
+            class="input" 
+            placeholder="Naam" 
+            [(ngModel)]="name"
+            required
+            minlength="3"
+            #nameInput="ngModel">
+          <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+            Name is required and needs to be at least 3 characters long.
+          </div>
+        </div>
+        <!-- email -->
+        <div class="field">          
+          <input 
+            type="email" 
+            name="email" 
+            class="input" 
+            placeholder="Email" 
+            [(ngModel)]="email"
+            required
+            email
+            #emailInput="ngModel">
+          <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+            Needs to be a valid email.
+          </div>
+        </div>
+        <!-- message -->
+        <div class="field">
+          <textarea 
+            class="textarea" 
+            name="message" 
+            placeholder="Met wat kan ik u Helpen?" 
+            [(ngModel)]="message"
+            required
+            #messageInput="ngModel"></textarea>
+            <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+              Your message is required!
+            </div>
+        </div>
+        <button type="submit" class="h4 mb-4">Submit</button>
+      </form>
+    </div>
+    </section>
+  
+
+
+
